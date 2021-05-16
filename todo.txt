@@ -1,0 +1,141 @@
+TODO
+
+Rename and rebase project
+
+also put project on github
+
+add proper license
+Come up with proper name
+    "Manual media renaming GUI" is pretty bad
+    "Manual file renaming GUI"
+        Mafirgui
+        Mafiregui
+        firegui (taken :()
+        (manual) FIle REnaming GUI
+        reFile (REnaming FIle) :/
+    "Batch Media Renaming GUI"
+    "Batch File Renaming GUI"
+        BaReGUI
+        BAtch REnaming GUI
+    Crystal Batch
+    Crystal File Batch
+    Crystal File Batch Renamer
+    "CrystalFileBatch" Renamer (CFB)
+        Crystal: Valuable, shiny, good looking object with a rigid structure at its base that despite being a rigid grid at its core can form structures that are seemingly random(ish)
+        File: The script intends to work with all files
+        Batch: It's intended use is to rename entire batches of files (like a folder filled with files), not just a single file or just a couple of files
+        Renamer: The purpose of the script is to rename files...duh
+        
+        Maybe the shorter "CrystalBatch" is better, especially since it has is nice homage to the drug "Crystal Meth"
+            -> Potential for shitty, extremely cringeworthy jokes such as "goes well with Crystal Meth" or "we recommend CrystalMeth(TM) for a higher throughput" ...
+
+Source code into src folder
+Data into res folder
+Clean up code
+    -Split up into functions
+    -Rename variables and functions
+    -Make proper comments
+    -Remove unused code and bad comments
+
+Make MediaSupport Modular
+    - Module has specific:
+        - File type support
+        - Render support
+        - Can have start/stop support
+        - Check if required components are available
+        
+
+Add support for
+    - Audio
+    - Text
+    - Documents (PDFs, Word Documents, ...)
+    - Tables
+    - General
+        - Folders
+        - Files
+        
+Add try except for image loading
+    -move not readable files to error folder
+    -error folder is "global"
+        -per source-target pairing a specific error folder can be set
+    -write log for each file into specific error log file (one per image)
+    -show error popup with error message and include path to error message
+        
+Create test set of images and videos (free images and videos)
+    -Variety of different file types
+    -Place it on website
+    -Allow to start with test parameter to download these files and start with test config
+    
+Change file type support for image and video (more complete list)
+
+Add video (gstreamer) test to make sure gstreamer works
+
+Change heuristic for coloring top bar
+
+Show queue progress and size in corner
+Show filesize in corner
+Progress bar for videos with timings and support for clicking and dragging the point
+    -small preview of scene
+    -implement as file type independent function and let the file type dependend modules use it
+
+Allow to skip files with TAB
+    -simple skip or
+    -move skipped element to end of list
+        -add setting to decide
+    
+Add music player/integration support for media without sound to make boring task task less painful
+
+Show paused and resume logo for media that can be paused resumed
+
+    
+Add regex selection support for files
+Add renaming scheme support
+
+Add config file to change settings
+    -allow for custom config file location via start parameter
+    -place config file by default next to exe
+    -if no config file exists show install menu to allow normal user to move exe into it's own program directory, perhaps add desktop link and start menu link
+
+Add support for a multitude of different languages
+    -Detect local language
+    -Menu
+    -Known words for heuristic used for coloring top bar
+
+Make size presets, allow for custom style presets
+
+Add title bar
+    - Allow to change settings while running
+    - Allow to reload settings or config
+    - Show help
+    - Show release
+    - About page
+    
+
+Add versions.txt and iterate versions
+Add support for updates
+    Add autoupdate support
+    
+
+Make new main.py for initial dialogue
+    - select source and target folder(s)
+        - possibly set renaming scheme
+        - select file types (and extensions)
+        - save last selection in config
+
+Make standalone files
+    - py2exe
+    - pyInstaller
+Put them into "releases" folder
+    
+    
+    
+    
+
+Add support to filter out duplicates
+    -Automatic resolve:
+        -based on heuristic score
+    -Manual resolve:
+        -Show duplicate files and both names
+        -Allow for decision with left and right arrow (or by clicking)
+    
+    
