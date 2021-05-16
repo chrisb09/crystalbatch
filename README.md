@@ -18,6 +18,8 @@ The **Crystal** *file* **batch** *renamer*, or short just **crystalbatch**, is a
   - [Usuage](#usuage)
     - [Key bindings](#key-bindings)
   - [How it looks like](#how-it-looks-like)
+  - [TODO](#todo)
+  - [Perhaps:](#perhaps)
 
 ## Purpose
 
@@ -75,3 +77,90 @@ Start the main.py with the path of the source folder and the target folder. Then
 
 Small window screenshot:
 ![Small screenshot of the program](screenshots/screenshot.png)
+
+## TODO
+
+- [ ] Source code into src folder
+- [ ] Data into res folder
+- [ ] Clean up code
+  - [ ] Split up into functions
+  - [ ] Rename variables and functions
+  - [ ] Make proper comments
+  - [ ] Remove unused code and bad comments
+- [ ] Make MediaSupport Modular
+  - [ ] Module has specific:
+    - [ ] File type support
+    - [ ] Render support
+    - [ ] Can have start/stop support
+    - [ ] Check if required components are available
+- [ ] Add support for
+  - [ ] Audio
+  - [ ] Text
+  - [ ] Documents (PDFs, Word Documents, ...)
+  - [ ] Tables
+  - [ ] General
+    - [ ] Folders
+    - [ ] Files
+- [ ] Add try except for image loading
+  - [ ] move not readable files to error folder
+  - [ ] error folder is "global"
+    - [ ] per source-target pairing a specific error folder can be set
+  - [ ] write log for each file into specific error log file (one per image)
+  - [ ] show error popup with error message and include path to error message
+- [ ] Create test set of images and videos (free images and videos)
+  - [ ] Variety of different file types
+  - [ ] Place it on website
+      - [ ] Allow to start with test parameter to download these files and start with test config
+- [ ] Change file type support for image and video (more complete list)
+- [ ] Add video (gstreamer) test to make sure gstreamer works
+- [ ] Change heuristic for coloring top bar
+- [ ] Show queue progress and size in corner
+- [ ] Show filesize in corner
+- [ ] Progress bar for videos with timings and support for clicking and dragging the point
+  - [ ] small preview of scene
+  - [ ] implement as file type independent function and let the file type dependend modules use it
+- [ ] Allow to skip files with TAB
+  - [ ] simple skip or
+  - [ ] move skipped element to end of list
+    - [ ] add setting to decide
+- [ ] Add music player/integration support for media without sound to make boring task task less painful
+- [ ] Show paused and resume logo for media that can be paused resumed
+- [ ] Add regex selection support for files
+- [ ] Add renaming scheme support
+
+- [ ] Add config file to change settings
+  - [ ] allow for custom config file location via start parameter
+  - [ ] place config file by default next to exe
+  - [ ] if no config file exists show install menu to allow normal user to move exe into it's own program directory, perhaps add desktop link and start menu link
+- [ ] Add support for a multitude of different languages
+  - [ ] Detect local language
+  - [ ] Menu
+  - [ ] Known words for heuristic used for coloring top bar
+- [ ] Make size presets, allow for custom style presets
+- [ ] Add title bar
+  - [ ] Allow to change settings while running
+  - [ ] Allow to reload settings or config
+  - [ ] Show help
+  - [ ] Show release
+  - [ ] About page
+- [ ] Add versions.txt and iterate versions
+- [ ] Add support for updates
+  - [ ] Add autoupdate support
+- [ ] Make new main.py for initial dialogue
+  - [ ] select source and target folder(s)
+    - [ ] possibly set renaming scheme
+    - [ ] select file types (and extensions)
+  - [ ] save last selection in config
+- [ ] Make standalone files
+  - [ ] py2exe
+  - [ ] pyInstaller
+  - [ ] Put them into "releases" folder
+    
+## Perhaps:
+
+- [ ] Add support to filter out duplicates
+  - [ ] Automatic resolve:
+    - [ ] based on heuristic score
+  - [ ] Manual resolve:
+    - [ ] Show duplicate files and both names
+    - [ ] Allow for decision with left and right arrow (or by clicking)
