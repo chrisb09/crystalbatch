@@ -2,7 +2,17 @@ This project was originally located at [gitlab](https://gitlab.com/christianbrin
 
 # Manual media renaming GUI
 
-[[_TOC_]]
+- [Manual media renaming GUI](#manual-media-renaming-gui)
+  - [Purpose](#purpose)
+    - [Supported file types:](#supported-file-types)
+  - [Requirements](#requirements)
+    - [Gstreamer](#gstreamer)
+    - [Python](#python)
+  - [Execution](#execution)
+    - [Examples](#examples)
+  - [Usuage](#usuage)
+    - [Key bindings](#key-bindings)
+  - [How it looks like](#how-it-looks-like)
 
 ## Purpose
 
@@ -10,27 +20,12 @@ This simple script displays a GUI which shows an image or video at a time with i
 
 ### Supported file types:
 
-#### Image
-
-- .png
-- .jpg
-- .jpeg
-- .gif
-- .bmp
-
-#### Video
-
-- .mkv
-- .mp4
-- .avi
-- .webm
 
 ## Requirements
 
 This script requires python3 to run. I've successfully tested it on python 3.8.5 on ubuntu.
 
 Additionally, since this software also supports videos installing gstreamer is required.
-The last version without video support is eee2952c. Use it if you do not want to install gstreamer.
 
 ### Gstreamer
 
@@ -74,14 +69,3 @@ Start the main.py with the path of the source folder and the target folder. Then
 
 Small window screenshot:
 ![Small screenshot of the program](screenshots/screenshot.png)
-
-Video:
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/v3FIxrc-h1w" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-
-
-## Notes
-
-It's my first gui made with python. I recently added some working resolution scaling, but be warned this isn't perfect. The GUI is not designed to look good, just to be functional. If you have any comments feel free to contact me.
