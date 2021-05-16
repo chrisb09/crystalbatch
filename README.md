@@ -1,8 +1,13 @@
 This project was originally located at [gitlab](https://gitlab.com/christianbrinkmann/image-rename-manual-gui). The project was originally only intended to rename images, but with the inclusion of animated gifs and then videos i decided that in theory this script should be able to rename all files. Because of this shift i've decided to redo the entire project and give it a new name, logo, purpose and repository.
 
-# Manual media renaming GUI
+# Crystal File Batch Renamer
 
-- [Manual media renaming GUI](#manual-media-renaming-gui)
+The **Crystal** *file* **batch** *renamer*, or short just **crystalbatch**, is a simple *GUI* based program that allows a person to efficiently rename large batches of files manually.
+
+## Table of contents
+
+- [Crystal File Batch Renamer](#crystal-file-batch-renamer)
+  - [Table of contents](#table-of-contents)
   - [Purpose](#purpose)
     - [Supported file types:](#supported-file-types)
   - [Requirements](#requirements)
@@ -20,14 +25,15 @@ This simple script displays a GUI which shows an image or video at a time with i
 
 ### Supported file types:
 
+*this section is not complete yet*
 
 ## Requirements
 
 This script requires python3 to run. I've successfully tested it on python 3.8.5 on ubuntu.
 
-Additionally, since this software also supports videos installing gstreamer is required.
-
 ### Gstreamer
+
+Since this software also supports videos installing gstreamer is required.
 
 I've followed this guide to install gstreamer:
 ![Guide](http://lifestyletransfer.com/how-to-install-gstreamer-python-bindings/)
