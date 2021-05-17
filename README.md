@@ -80,8 +80,8 @@ Small window screenshot:
 
 ## TODO
 
-- [ ] Source code into src folder
-- [ ] Data into res folder
+- [x] Source code into src folder
+- [x] Data into res folder
 - [ ] Clean up code
   - [ ] Split up into functions
   - [ ] Rename variables and functions
@@ -127,7 +127,6 @@ Small window screenshot:
 - [ ] Show paused and resume logo for media that can be paused resumed
 - [ ] Add regex selection support for files
 - [ ] Add renaming scheme support
-
 - [ ] Add config file to change settings
   - [ ] allow for custom config file location via start parameter
   - [ ] place config file by default next to exe
