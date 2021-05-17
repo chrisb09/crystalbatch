@@ -1,0 +1,8 @@
+include versioneer.py
+include crystalbatch/src/_version.py
+
+include README.rst
+include LICENSE
+include requirements.txt
+graft crystalbatch
+recursive-exclude * *.py[co]
