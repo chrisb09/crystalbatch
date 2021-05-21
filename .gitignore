@@ -6,3 +6,4 @@ source
 target
 __pycache__
 *.pyc
+config.ini
