@@ -132,9 +132,9 @@ Small window screenshot:
   - [ ] place config file by default next to exe
   - [ ] if no config file exists show install menu to allow normal user to move exe into it's own program directory, perhaps add desktop link and start menu link
 - [ ] Add support for a multitude of different languages
-  - [ ] Detect local language
+  - [x] Detect local language
   - [ ] Menu
-  - [ ] Known words for heuristic used for coloring top bar
+  - [x] Known words for heuristic used for coloring top bar
 - [ ] Make size presets, allow for custom style presets
 - [ ] Add title bar
   - [ ] Allow to change settings while running
@@ -142,7 +142,7 @@ Small window screenshot:
   - [ ] Show help
   - [ ] Show release
   - [ ] About page
-- [ ] Add versions.txt and iterate versions
+- [x] Add versions and iterate versions
 - [ ] Add support for updates
   - [ ] Add autoupdate support
 - [ ] Make new main.py for initial dialogue
