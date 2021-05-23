@@ -66,7 +66,7 @@ window.title("Crystal batch file renamer")
 # window.configure(background='red')
 
 
-# window.tk.call("wm", "iconphoto", window._w, tk.PhotoImage(file="logo.png"))
+window.tk.call("wm", "iconphoto", window._w, tk.PhotoImage(file="logos/Crystal_focus_color.png"))
 
 window.minsize(window.winfo_screenwidth() // 2, window.winfo_screenheight() // 2)
 
