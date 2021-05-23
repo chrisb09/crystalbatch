@@ -19,7 +19,7 @@ def _helper(function, *args):
     _destroy_root(tmp)
 
 
-def callfunction(function, root, *args):
+def _callfunction(function, root, *args):
     if root is None:
         _helper(function, *args)
     else:
@@ -27,9 +27,9 @@ def callfunction(function, root, *args):
 
 
 def error(title, message, root=None):
-    callfunction(showerror, root, title, message)
+    _callfunction(showerror, root, title, message)
     # showerror(title, message)
 
 
 def warning(title, message, root=None):
-    callfunction(showwarning, root, title, message)
+    _callfunction(showwarning, root, title, message)
