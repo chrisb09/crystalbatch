@@ -22,7 +22,16 @@ def _write_config():
     if len(config.sections()) == 0:
         config.add_section("General")
         config.set("General", "log_level_debug", "True")
-        config.set("General" ,"language_locale", language.default_language)
+        config.set(
+            "General",
+            "selected_translation",
+            os.path.basename(
+                os.path.splitext(
+                    language.get_translation_by_locale(language.default_language)[2]
+                )[0]
+            ),
+        )
+        config.set("General", "selected_vocabularies", "")
     config.write(cfgfile)
     cfgfile.close()
 
