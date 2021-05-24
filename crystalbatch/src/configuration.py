@@ -41,6 +41,9 @@ def _update_from_config():
         if "root_path" in dict(config["General"]).keys():
             global root_dir
             root_dir = config.get("General", "root_path")
+        if "selected_translation" in dict(config["General"]).keys():
+            language.load_translation_by_keyword(config.get("General", "selected_translation"))
+            print("Language '"+config.get("General", "selected_translation")+"' loaded successfully!")
 
 
 def read_config():
