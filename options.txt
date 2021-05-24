@@ -1,0 +1,37 @@
+select gui language: selection
+
+
+settings: single radio button radio
+    - autoloop
+    - colorblind top-bar (red-green to blue-brown): two radio button (normal, red-green compability)
+    - tab skip (move to end of queue or - well - not... : two radio buttons
+    - auto update check (multiple radio buttons: disabled, only major upgrades, only major&minor, every release
+
+show: checkboxes buttons
+    - filesize
+    - file type (Video/Image/... etc)
+    - filetype
+    - last edited / file creation time
+    - pause/resume indicator
+    - fast forward/reverse indicator
+    - media timeline
+    - queue progress
+    - topside menu bar
+    - achievements
+
+
+select wordlists: checkboxes
+
+fast-forward (1&2): time in ms (int-input) (maybe even slider)
+reverse: time in ms (int-input) (see above)
+
+
+
+extra-menu: keybindings + alias
+
+button:
+    - display about-info window
+    - check for updates
+    - create desktop link, grey out if exists
+    - create start menu entry, grey out if exists
+    - (install script at proper location, i.e. move it to home or programs folder (within it's respective folder ofc. and create start menu as well as desktop link, grey out if exists)
