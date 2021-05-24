@@ -29,7 +29,6 @@ def _callfunction(function, root, *args):
 
 def error(title, message, root=None):
     return _callfunction(showerror, root, title, message)
-    # showerror(title, message)
 
 
 def warning(title, message, root=None):
