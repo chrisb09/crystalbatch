@@ -5,6 +5,8 @@ from tkinter import *
 from tkinter import filedialog
 from functools import partial
 
+from . import language
+
 
 def callback_folder_select(entry):
     res = filedialog.askdirectory(mustexist=True)
@@ -84,8 +86,9 @@ window.grid_rowconfigure(0, weight=1)
 window.grid_rowconfigure(1, weight=20)
 window.grid_rowconfigure(2, weight=3)
 
-top_text = Label(window, text="Select source-target directory pairs:", fg="black")
+top_text = Message(window, text=language.translation_json["Content"]["select_source_target_pairs"], fg="black", justify="center")
 top_text.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky=NSEW)
+top_text.bind("<Configure>", lambda e: top_text.configure(width=window.winfo_width()-10))
 
 settings_frame = LabelFrame(window, text="Settings", bd=5, relief=RIDGE)
 settings_frame.grid(row=1, column=0, padx=20, pady=20, sticky=NSEW)
@@ -99,17 +102,18 @@ frame.pack(side=LEFT, fill=BOTH, expand=TRUE)
 # frame.pack()
 pair_frames = []
 for i in range(5):
-    pair_frames.append(LabelFrame(frame.interior, text="Food", bd=5, relief=RIDGE))
+    pair_frames.append(LabelFrame(frame.interior, text="Pair #"+str(i+1), bd=5, relief=RIDGE))
     pair_frames[-1].pack(side=TOP, fill=X, expand=TRUE, padx=20, pady=10)
 
     pair_frames[-1].grid_columnconfigure(0, weight=1)
-    pair_frames[-1].grid_columnconfigure(1, weight=1)
+    pair_frames[-1].grid_columnconfigure(1, weight=2)
     pair_frames[-1].grid_columnconfigure(1, weight=1)
 
     pair_frames[-1].grid_rowconfigure(0, weight=1)
     pair_frames[-1].grid_rowconfigure(1, weight=1)
     pair_frames[-1].grid_rowconfigure(2, weight=1)
 
+    Label(pair_frames[-1], text=language.translation_json["Content"]["source_dir"]+":").grid(row=0, column=0, padx=5, pady=5, sticky=E)
     source_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left")
     source_entry.grid(row=0, column=1, columnspan=1, padx=5, pady=5, sticky=EW)
     Button(
@@ -117,6 +121,7 @@ for i in range(5):
         text="...",
         command=partial(callback_folder_select, source_entry),
     ).grid(row=0, column=2, columnspan=1, padx=0, pady=5, sticky=E)
+    Label(pair_frames[-1], text=language.translation_json["Content"]["target_dir"]+":").grid(row=1, column=0, padx=5, pady=5, sticky=E)
     target_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left")
     target_entry.grid(row=1, column=1, columnspan=1, padx=5, pady=5, sticky=EW)
     Button(
