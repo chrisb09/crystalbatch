@@ -125,9 +125,16 @@ _translations = language.list_available_translations()
 _lang_combo_selection = -1
 for index in range(len(_translations)):
     translation = _translations[index]
-    if os.path.basename(translation[2]) == configuration.config.get("General", "selected_translation")+".json":
+    if (
+        os.path.basename(translation[2])
+        == configuration.config.get("General", "selected_translation") + ".json"
+    ):
         _lang_combo_selection = index
-_language_box = ttk.Combobox(settings_frame, state="readonly", values=[x+" ("+y+")" for x, y, _ in _translations])
+_language_box = ttk.Combobox(
+    settings_frame,
+    state="readonly",
+    values=[x + " (" + y + ")" for x, y, _ in _translations],
+)
 _language_box.current(_lang_combo_selection)
 _language_box.pack()
 
