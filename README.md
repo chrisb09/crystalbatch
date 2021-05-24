@@ -154,6 +154,18 @@ Small window screenshot:
   - [ ] py2exe
   - [ ] pyInstaller
   - [ ] Put them into "releases" folder
+- [ ] Add achievements (renaming can be a mondane task, so some basic achievements to "reward" the user can be quite nice)
+  - [ ] number of files processed
+  - [ ] number of files actually renamed
+  - [ ] time actively renamed
+  - [ ] characters typed
+  - [ ] through autocomplete "saved" characters
+  - [ ] online scoreboard to compare
+  - [ ] each archievement (different sublevels) grant "points", at certain threshold one receives "shards" which form the crystal from the logo, and once that is complete the crystal is upgraded further visually
+- [ ] Add autocomplete option for increased typing speed
+  - [ ] start with pretrained network trained on selected wordlists, learn from user input
+    - [ ] perhaps share differences of net online from time to time
+      - [ ] validate aggregated changes by running on other users, maybe...
     
 ## Perhaps:
 
