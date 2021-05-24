@@ -8,6 +8,7 @@ from tkinter import ttk
 from functools import partial
 
 from . import language, popup, configuration
+from .tooltip import Tooltip
 
 
 def _write_settings():
@@ -121,6 +122,20 @@ top_text.bind(
 settings_frame = LabelFrame(window, text="Settings", bd=5, relief=RIDGE)
 settings_frame.grid(row=1, column=0, padx=20, pady=20, sticky=NSEW)
 
+settings_frame.grid_columnconfigure(0, weight=1)
+settings_frame.grid_columnconfigure(1, weight=1)
+settings_frame.grid_columnconfigure(1, weight=1)
+
+settings_frame.grid_rowconfigure(0, weight=1)
+settings_frame.grid_rowconfigure(1, weight=1)
+settings_frame.grid_rowconfigure(2, weight=1)
+
+
+Label(
+    settings_frame,
+    text=language.translation_json["Content"]["interface_language"] + ":",
+).grid(row=0, column=0, padx=5, pady=5, sticky=E)
+
 _translations = language.list_available_translations()
 _lang_combo_selection = -1
 for index in range(len(_translations)):
@@ -135,8 +150,12 @@ _language_box = ttk.Combobox(
     state="readonly",
     values=[x + " (" + y + ")" for x, y, _ in _translations],
 )
+Tooltip(
+    _language_box,
+    text=language.translation_json["Tooltip"]["select_interface_language"],
+)
 _language_box.current(_lang_combo_selection)
-_language_box.pack()
+_language_box.grid(row=0, column=1, columnspan=2, padx=5, pady=5, sticky=EW)
 
 pairing_frame = LabelFrame(window, text="Pairings", bd=5, relief=RIDGE)
 pairing_frame.grid(row=1, column=1, sticky=NSEW, padx=20, pady=20)
@@ -165,21 +184,39 @@ for i in range(5):
     ).grid(row=0, column=0, padx=5, pady=5, sticky=E)
     source_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left")
     source_entry.grid(row=0, column=1, columnspan=1, padx=5, pady=5, sticky=EW)
-    Button(
+    Tooltip(
+        source_entry,
+        text=language.translation_json["Tooltip"]["select_source_dir_input"],
+    )
+    source_entry_button = Button(
         pair_frames[-1],
         text="...",
         command=partial(callback_folder_select, source_entry),
-    ).grid(row=0, column=2, columnspan=1, padx=0, pady=5, sticky=E)
+    )
+    source_entry_button.grid(row=0, column=2, columnspan=1, padx=0, pady=5, sticky=E)
+    Tooltip(
+        source_entry_button,
+        text=language.translation_json["Tooltip"]["select_source_dir_dialogue"],
+    )
     Label(
         pair_frames[-1], text=language.translation_json["Content"]["target_dir"] + ":"
     ).grid(row=1, column=0, padx=5, pady=5, sticky=E)
     target_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left")
     target_entry.grid(row=1, column=1, columnspan=1, padx=5, pady=5, sticky=EW)
-    Button(
+    Tooltip(
+        target_entry,
+        text=language.translation_json["Tooltip"]["select_target_dir_input"],
+    )
+    target_entry_button = Button(
         pair_frames[-1],
         text="...",
         command=partial(callback_folder_select, target_entry),
-    ).grid(row=1, column=2, columnspan=1, padx=0, pady=5, sticky=E)
+    )
+    target_entry_button.grid(row=1, column=2, columnspan=1, padx=0, pady=5, sticky=E)
+    Tooltip(
+        target_entry_button,
+        text=language.translation_json["Tooltip"]["select_target_dir_dialogue"],
+    )
 
 bottom_frame = Frame(window)
 bottom_frame.grid(row=2, column=0, columnspan=3, sticky=S, padx=20, pady=20)

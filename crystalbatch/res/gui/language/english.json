@@ -7,6 +7,8 @@
     },
     "Content": {
         "select_source_target_pairs": "Select source-target directory pairs. The files that are supposed to be renamed should be located in one of the source folders. Once they are renamed they are placed in the respective target folder.",
+        "interface_language": "Interface language",
+        "options": "Options",
         "source_dir": "Source directory",
         "target_dir": "Target directory",
         "select_a_dir": "Choose a directory",
@@ -14,8 +16,15 @@
         "okay": "Okay",
         "cancel": "Cancel",
         "save_settings": "Save settings",
-        "options": "Options",
         "quit_title": "Quit crystalbatch",
         "quit_save_message": "All unsaved changes will be lost. Do you want to save now?"
+    },
+    "Tooltip": {
+        "select_interface_language": "Select the language in which the graphical user interface (GUI) is displayed.",
+        "select_source_dir_input": "Select the directory which contains files you intend to rename by entering it's path here.",
+        "select_source_dir_dialogue": "Select the directory which contains files you intend to rename via a file selection dialogue.",
+        "select_target_dir_input": "Select the directory in which renamed files are placed by entering it's path here.",
+        "select_target_dir_dialogue": "Select the directory in which the renamed files are placed via a file selection dialogue."
+        
     }
 }
