@@ -13,6 +13,7 @@
         "error_dir_does_not_exist": "The directory does not exist!",
         "okay": "Okay",
         "cancel": "Cancel",
+        "save_settings": "Save settings",
         "options": "Options"
     }
 }

@@ -130,5 +130,23 @@ for i in range(5):
         command=partial(callback_folder_select, target_entry),
     ).grid(row=1, column=2, columnspan=1, padx=0, pady=5, sticky=E)
 
+bottom_frame = Frame(window)
+bottom_frame.grid(row=2, column=0, columnspan=3, sticky=S, padx=20, pady=20)
+Button(
+        bottom_frame,
+        text=language.translation_json["Content"]["okay"],
+        command=partial(callback_folder_select, ),
+    ).grid(row=0, column=0, columnspan=1, padx=5, pady=0, sticky=E)
+Button(
+        bottom_frame,
+        text=language.translation_json["Content"]["cancel"],
+        command=partial(callback_folder_select, ),
+    ).grid(row=0, column=1, columnspan=1, padx=5, pady=0)
+Button(
+        bottom_frame,
+        text=language.translation_json["Content"]["save_settings"],
+        command=partial(callback_folder_select, ),
+    ).grid(row=0, column=2, columnspan=1, padx=5, pady=0, sticky=W)
+
 
 window.mainloop()
