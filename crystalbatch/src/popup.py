@@ -1,4 +1,5 @@
 from tkinter.messagebox import *
+from tkinter.colorchooser import askcolor
 import tkinter as tk
 
 
@@ -13,18 +14,19 @@ def _destroy_root(root):
     root.destroy()
 
 
-def _helper(function, *args):
+def _helper(function, *args, **options):  # creates a temporary window
     tmp = _create_root()
-    res = function(*args)
+    print(*args)
+    res = function(*args, **options)
     _destroy_root(tmp)
     return res
 
 
-def _callfunction(function, root, *args):
-    if root is None:
-        return _helper(function, *args)
+def _callfunction(function, root, *args, **options):
+    if root is None:  # we need to create a hidden temporary window
+        return _helper(function, *args, **options)
     else:
-        return function(*args)
+        return function(*args, **options)
 
 
 def error(title, message, root=None):
@@ -57,3 +59,7 @@ def question(title, message, root=None):
 
 def okay_cancel(title, message, root=None):
     return _callfunction(askokcancel, root, title, message)
+
+
+def select_color(color, root=None):
+    return _callfunction(askcolor, root, color)
