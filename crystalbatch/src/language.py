@@ -97,7 +97,9 @@ def get_translation_by_locale(locale):
     return selected_translation
 
 
-def load_translation_by_keyword(keyword):
+def load_translation_by_keyword(
+    keyword,
+):  # load a language, keyword could be 'english' or 'german' etc.
     load_translation(
         os.path.join(
             os.path.abspath(os.path.join(root_dir, "res/gui/language/")),
