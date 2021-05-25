@@ -29,37 +29,37 @@ def _callfunction(function, root, *args, **options):
         return function(*args, **options)
 
 
-def error(title, message, root=None):
+def error(title, message, root=None, **options):
     return _callfunction(showerror, root, title, message)
 
 
-def warning(title, message, root=None):
+def warning(title, message, root=None, **options):
     return _callfunction(showwarning, root, title, message)
 
 
-def info(title, message, root=None):
+def info(title, message, root=None, **options):
     return _callfunction(showinfo, root, title, message)
 
 
-def yes_no_cancel(title, message, root=None):
+def yes_no_cancel(title, message, root=None, **options):
     return _callfunction(askyesnocancel, root, title, message)
 
 
-def yes_no(title, message, root=None):
+def yes_no(title, message, root=None, **options):
     return _callfunction(askyesno, root, title, message)
 
 
-def retry_cancel(title, message, root=None):
+def retry_cancel(title, message, root=None, **options):
     return _callfunction(askretrycancel, root, title, message)
 
 
-def question(title, message, root=None):
+def question(title, message, root=None, **options):
     return _callfunction(askquestion, root, title, message)
 
 
-def okay_cancel(title, message, root=None):
+def okay_cancel(title, message, root=None, **options):
     return _callfunction(askokcancel, root, title, message)
 
 
-def select_color(color, root=None):
-    return _callfunction(askcolor, root, color)
+def select_color(color, root=None, **options):
+    return _callfunction(askcolor, root, color, **options)
