@@ -2,7 +2,7 @@
 Can also provide a default value for the interface language."""
 import platform, os, locale, json
 
-from . import popup
+from .tkinter_helper import popup
 
 
 def _check_locale(loc, used_languages):
