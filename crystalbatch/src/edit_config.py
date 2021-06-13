@@ -75,7 +75,7 @@ def open_window():
     window.geometry(str(window.winfo_screenwidth() // 2) + "x" + str(window.winfo_screenheight() // 2))
 
     window.tk.call(
-        "wm", "iconphoto", window._w, tk.PhotoImage(file="logos/Crystal_focus_color.png")
+        "wm", "iconphoto", window._w, tk.PhotoImage(file="logos/vectorgraphic gen 2/black border 5px.png")
     )
 
     global widget_tree
