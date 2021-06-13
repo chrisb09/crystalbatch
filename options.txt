@@ -26,6 +26,8 @@ fast-forward (1&2): time in ms (int-input) (maybe even slider)
 reverse: time in ms (int-input) (see above)
 
 
+change menu colors (1&2 via color selection popup)
+
 
 extra-menu: keybindings + alias
 
@@ -35,3 +37,4 @@ button:
     - create desktop link, grey out if exists
     - create start menu entry, grey out if exists
     - (install script at proper location, i.e. move it to home or programs folder (within it's respective folder ofc. and create start menu as well as desktop link, grey out if exists)
+    - Reset configuration
