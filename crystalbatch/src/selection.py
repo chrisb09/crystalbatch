@@ -7,8 +7,9 @@ from tkinter import *
 from tkinter import ttk
 from functools import partial
 
-from . import language, popup, configuration
-from .tooltip import Tooltip
+from . import language, configuration
+from .tkinter_helper.tooltip import Tooltip
+from .tkinter_helper import popup
 
 
 def _write_settings():
@@ -84,7 +85,7 @@ class VerticalScrolledFrame(Frame):
 window = tk.Tk()
 window.title("Crystal batch file renamer")
 # window.wm_attributes('-type', 'splash')
-# window.configure(background='red')
+window.configure(background=configuration.config.get("General", "background_color_1"))
 
 window.tk.call(
     "wm", "iconphoto", window._w, tk.PhotoImage(file="logos/Crystal_focus_color.png")
@@ -94,11 +95,7 @@ window.minsize(window.winfo_screenwidth() // 2, window.winfo_screenheight() // 2
 
 window.protocol("WM_DELETE_WINDOW", callback_close_window)
 
-# top_text.pack()
 
-
-# label = Label(text="Shrink the window to activate the scrollbar.")
-# label.pack()
 
 window.grid_columnconfigure(0, weight=1)
 window.grid_columnconfigure(1, weight=2)
@@ -112,6 +109,7 @@ top_text = Message(
     window,
     text=language.translation_json["Content"]["select_source_target_pairs"],
     fg="black",
+    bg=configuration.config.get("General", "background_color_1"),
     justify="center",
 )
 top_text.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky=NSEW)
@@ -119,22 +117,30 @@ top_text.bind(
     "<Configure>", lambda e: top_text.configure(width=window.winfo_width() - 10)
 )
 
-settings_frame = LabelFrame(window, text="Settings", bd=5, relief=RIDGE)
-settings_frame.grid(row=1, column=0, padx=20, pady=20, sticky=NSEW)
+settings_border_frame = Frame(window, bd=5, relief=RIDGE)
+settings_border_frame.grid(row=1, column=0, padx=20, pady=20, sticky=NSEW)
+settings_frame = LabelFrame(settings_border_frame, text="Settings:", bd=0, bg=configuration.config.get("General", "background_color_2"))
+settings_frame.configure(background=configuration.config.get("General", "background_color_2"))
+settings_frame.pack(expand=1, fill=tk.BOTH)
 
 settings_frame.grid_columnconfigure(0, weight=1)
 settings_frame.grid_columnconfigure(1, weight=1)
-settings_frame.grid_columnconfigure(1, weight=1)
+settings_frame.grid_columnconfigure(2, weight=1)
+settings_frame.grid_columnconfigure(3, weight=5)
 
 settings_frame.grid_rowconfigure(0, weight=1)
 settings_frame.grid_rowconfigure(1, weight=1)
 settings_frame.grid_rowconfigure(2, weight=1)
+settings_frame.grid_rowconfigure(3, weight=1)
+settings_frame.grid_rowconfigure(4, weight=1)
+settings_frame.grid_rowconfigure(5, weight=1)
+settings_frame.grid_rowconfigure(6, weight=1)
 
 
 Label(
     settings_frame,
-    text=language.translation_json["Content"]["interface_language"] + ":",
-).grid(row=0, column=0, padx=5, pady=5, sticky=E)
+    text=language.translation_json["Content"]["interface_language"] + ":", background=configuration.config.get("General", "background_color_2")
+).grid(row=0, column=0, padx=5, pady=5, sticky=W)
 
 _translations = language.list_available_translations()
 _lang_combo_selection = -1
@@ -148,7 +154,7 @@ for index in range(len(_translations)):
 _language_box = ttk.Combobox(
     settings_frame,
     state="readonly",
-    values=[x + " (" + y + ")" for x, y, _ in _translations],
+    values=[x + " (" + y + ")" for x, y, _ in _translations]
 )
 Tooltip(
     _language_box,
@@ -157,11 +163,119 @@ Tooltip(
 _language_box.current(_lang_combo_selection)
 _language_box.grid(row=0, column=1, columnspan=2, padx=5, pady=5, sticky=EW)
 
-pairing_frame = LabelFrame(window, text="Pairings", bd=5, relief=RIDGE)
+Label(
+    settings_frame,
+    text=language.translation_json["Content"]["autoloop"] + ":", background=configuration.config.get("General", "background_color_2")
+).grid(row=1, column=0, padx=5, pady=5, sticky=W)
+_autoloop = BooleanVar()
+_autoloop.set("True" == configuration.config.get("General", "autoloop"))
+_autoloop_checkbutton = Checkbutton(settings_frame, text="", variable=_autoloop, bd=0, background=configuration.config.get("General", "background_color_2"), highlightbackground=configuration.config.get("General", "background_color_2"))
+_autoloop_checkbutton.grid(row=1, column=1, sticky=W)
+
+Tooltip(
+    _autoloop_checkbutton,
+    text=language.translation_json["Tooltip"]["autoloop_checkbox"],
+)
+
+Label(
+    settings_frame,
+    text=language.translation_json["Content"]["colorblind"] + ":", background=configuration.config.get("General", "background_color_2")
+).grid(row=2, column=0, padx=5, pady=5, sticky=W)
+_colorblind = BooleanVar()
+_colorblind.set("True" == configuration.config.get("General", "colorblind")) #apparently bool("False") is 'True' in python...
+_colorblind_checkbutton = Checkbutton(settings_frame, text="", variable=_colorblind, bd=0, background=configuration.config.get("General", "background_color_2"), highlightbackground=configuration.config.get("General", "background_color_2"))
+_colorblind_checkbutton.grid(row=2, column=1, sticky=W)
+Tooltip(
+    _colorblind_checkbutton,
+    text=language.translation_json["Tooltip"]["colorblind_checkbox"],
+)
+
+Label(
+    settings_frame,
+    text=language.translation_json["Content"]["skip_move_to_end"] + ":", background=configuration.config.get("General", "background_color_2")
+).grid(row=3, column=0, padx=5, pady=5, sticky=W)
+_skip_move_to_end = BooleanVar()
+_skip_move_to_end.set("True" == configuration.config.get("General", "skip_move_to_end")) #apparently bool("False") is 'True' in python...
+_skip_move_to_end_checkbutton = Checkbutton(settings_frame, text="", variable=_colorblind, bd=0, background=configuration.config.get("General", "background_color_2"), highlightbackground=configuration.config.get("General", "background_color_2"))
+_skip_move_to_end_checkbutton.grid(row=3, column=1, sticky=W)
+Tooltip(
+    _skip_move_to_end_checkbutton,
+    text=language.translation_json["Tooltip"]["skip_move_to_end_checkbox"],
+)
+
+Label(
+    settings_frame,
+    text=language.translation_json["Content"]["autoupdate"] + ":", background=configuration.config.get("General", "background_color_2")
+).grid(row=4, column=0, padx=5, pady=5, sticky=W)
+_autoupdate_buttons = Frame(settings_frame, relief=GROOVE, bd=0, background=configuration.config.get("General", "background_color_2"))
+_autoupdate_buttons.grid(row=4, column=1, columnspan=3, sticky=EW)
+_autoupdate = StringVar()
+_autoupdate.set("minor")
+Tooltip(
+    _autoupdate_buttons,
+    text=language.translation_json["Tooltip"]["autoupdate_checkbox"],
+)
+
+_autoupdate_buttons.grid_columnconfigure(0, weight=1)
+_autoupdate_buttons.grid_columnconfigure(1, weight=1)
+
+_autoupdate_buttons.grid_rowconfigure(0, weight=1)
+_autoupdate_buttons.grid_rowconfigure(1, weight=1)
+
+Radiobutton(_autoupdate_buttons,
+            text="all releases",
+            padx = 0, 
+            highlightbackground=configuration.config.get("General", "background_color_2"),
+            background=configuration.config.get("General", "background_color_2"),
+            variable=_autoupdate,
+            value="all").grid(row=0, column=0, sticky=W)
+Radiobutton(_autoupdate_buttons,
+            text="major releases",
+            padx = 5, 
+            background=configuration.config.get("General", "background_color_2"),
+            highlightbackground=configuration.config.get("General", "background_color_2"),
+            variable=_autoupdate,
+            value="major").grid(row=0, column=1, sticky=W)
+Radiobutton(_autoupdate_buttons,
+            text="major&minor release",
+            padx = 0, 
+            background=configuration.config.get("General", "background_color_2"),
+            highlightbackground=configuration.config.get("General", "background_color_2"),
+            variable=_autoupdate,
+            value="minor").grid(row=1, column=0, sticky=W)
+Radiobutton(_autoupdate_buttons,
+            text="disabled",
+            padx = 5, 
+            background=configuration.config.get("General", "background_color_2"),
+            highlightbackground=configuration.config.get("General", "background_color_2"),
+            variable=_autoupdate,
+            value="disabled").grid(row=1, column=1, sticky=W)
+
+
+Label(
+    settings_frame,
+    text=language.translation_json["Content"]["show"] + ":", background=configuration.config.get("General", "background_color_2")
+).grid(row=5, column=0, padx=5, pady=5, sticky=W)
+_show_buttons = Frame(settings_frame, relief=GROOVE, bd=2, background=configuration.config.get("General", "background_color_2"))
+_show_buttons.grid(row=5, column=1, columnspan=3, sticky=EW)
+
+_show_file_size = BooleanVar()
+_show_file_size.set(configuration.config.get("General", "show_file_size"))
+
+_show_file_size_checkbutton = Checkbutton(_show_buttons, text=language.translation_json["Content"]["show_file_size"], variable=_show_file_size, bd=0, background=configuration.config.get("General", "background_color_2"), highlightbackground=configuration.config.get("General", "background_color_2"))
+_show_file_size_checkbutton.grid(row=0, column=0, sticky=W)
+Tooltip(
+    _show_file_size_checkbutton,
+    text=language.translation_json["Tooltip"]["show_file_size"],
+)
+
+
+pairing_frame = LabelFrame(window, text="Pairings", bd=5, relief=RIDGE, background=configuration.config.get("General", "background_color_2"))
 pairing_frame.grid(row=1, column=1, sticky=NSEW, padx=20, pady=20)
 
 frame = VerticalScrolledFrame(pairing_frame)
 # frame.interior.configure(background='red')
+frame.interior.configure(background=configuration.config.get("General", "background_color_2"))
 frame.pack(side=LEFT, fill=BOTH, expand=TRUE)
 # frame.pack()
 pair_frames = []
@@ -169,6 +283,7 @@ for i in range(5):
     pair_frames.append(
         LabelFrame(frame.interior, text="Pair #" + str(i + 1), bd=5, relief=RIDGE)
     )
+    pair_frames[-1].configure(background=configuration.config.get("General", "background_color_2"))
     pair_frames[-1].pack(side=TOP, fill=X, expand=TRUE, padx=20, pady=10)
 
     pair_frames[-1].grid_columnconfigure(0, weight=1)
@@ -180,9 +295,9 @@ for i in range(5):
     pair_frames[-1].grid_rowconfigure(2, weight=1)
 
     Label(
-        pair_frames[-1], text=language.translation_json["Content"]["source_dir"] + ":"
+        pair_frames[-1], text=language.translation_json["Content"]["source_dir"] + ":", background=configuration.config.get("General", "background_color_2")
     ).grid(row=0, column=0, padx=5, pady=5, sticky=E)
-    source_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left")
+    source_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left", background=configuration.config.get("General", "background_color_1"))
     source_entry.grid(row=0, column=1, columnspan=1, padx=5, pady=5, sticky=EW)
     Tooltip(
         source_entry,
@@ -191,7 +306,7 @@ for i in range(5):
     source_entry_button = Button(
         pair_frames[-1],
         text="...",
-        command=partial(callback_folder_select, source_entry),
+        command=partial(callback_folder_select, source_entry), background=configuration.config.get("General", "background_color_1")
     )
     source_entry_button.grid(row=0, column=2, columnspan=1, padx=0, pady=5, sticky=E)
     Tooltip(
@@ -199,9 +314,9 @@ for i in range(5):
         text=language.translation_json["Tooltip"]["select_source_dir_dialogue"],
     )
     Label(
-        pair_frames[-1], text=language.translation_json["Content"]["target_dir"] + ":"
+        pair_frames[-1], text=language.translation_json["Content"]["target_dir"] + ":", background=configuration.config.get("General", "background_color_2")
     ).grid(row=1, column=0, padx=5, pady=5, sticky=E)
-    target_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left")
+    target_entry = Entry(pair_frames[-1], fg="black", bg="white", justify="left", background=configuration.config.get("General", "background_color_1"))
     target_entry.grid(row=1, column=1, columnspan=1, padx=5, pady=5, sticky=EW)
     Tooltip(
         target_entry,
@@ -210,7 +325,7 @@ for i in range(5):
     target_entry_button = Button(
         pair_frames[-1],
         text="...",
-        command=partial(callback_folder_select, target_entry),
+        command=partial(callback_folder_select, target_entry), background=configuration.config.get("General", "background_color_1")
     )
     target_entry_button.grid(row=1, column=2, columnspan=1, padx=0, pady=5, sticky=E)
     Tooltip(

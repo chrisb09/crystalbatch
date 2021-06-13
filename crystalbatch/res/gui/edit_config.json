@@ -1,0 +1,1456 @@
+{
+    "General": {
+
+    },
+    "Configuration": {
+        "General": {
+            "selected_vocabularies": "",
+            "background_color_1": "#F0F0F0",
+            "background_color_2": "#D9D9D9",
+            "autoloop": "True",
+            "colorblind": "False",
+            "skip_move_to_end": "False",
+            "autoupdate": "minor",
+            "show_file_size": "True",
+            "show_file_type": "False",
+            "show_file_timestamps": "False",
+            "show_media_playback": "True",
+            "show_media_timeline": "True",
+            "show_queue_progress": "True",
+            "show_menu_bar": "False",
+            "show_achievements": "False",
+            "show_last_action": "True"
+        }
+    },
+    "Notebook": {
+        "type": "Frame",
+        "parameter": {
+            "background": {
+                "type": "config",
+                "key_general": "General",
+                "key_specific": "background_color_2"
+            }
+        },
+        "display_type": "pack",
+        "display_parameter": {
+            "fill": "both",
+            "expand": 1
+        },
+        "row_weights": [0,0,0,1,0],
+        "column_weights": [0,1,0],
+        "children": {
+            "source_entry_label": {
+                "type": "Label",
+                "parameter": {
+                    "text": {
+                        "type": "translation",
+                        "keys": ["Content", "source_dir"]
+                    },
+                    "justify": "left",
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_2"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 0,
+                    "column": 0,
+                    "columnspan": 1,
+                    "padx": 5,
+                    "pady": 5,
+                    "sticky": "e"
+                }
+            },
+            "source_entry": {
+                "type": "Entry",
+                "parameter": {
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 0,
+                    "column": 1,
+                    "columnspan": 1,
+                    "padx": 5,
+                    "pady": 5,
+                    "sticky": "ew"
+                },
+                "children": {
+                    "tooltip": {
+                        "type": "Tooltip",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Tooltip", "select_source_dir_input"]
+                            }
+                        }
+                    }
+                }
+            },
+            "source_entry_button": {
+                "type": "Button",
+                "parameter": {
+                    "text": "...",
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 0,
+                    "column": 2,
+                    "sticky": "e"
+                },
+                "children": {
+                    "tooltip": {
+                        "type": "Tooltip",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Tooltip", "select_source_dir_dialogue"]
+                            }
+                        }
+                    }
+                }
+            },
+            "target_entry_label": {
+                "type": "Label",
+                "parameter": {
+                    "text": {
+                        "type": "translation",
+                        "keys": ["Content", "target_dir"]
+                    },
+                    "justify": "left",
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_2"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 2,
+                    "column": 0,
+                    "columnspan": 1,
+                    "padx": 5,
+                    "pady": 5,
+                    "sticky": "e"
+                }
+            },
+            "target_entry": {
+                "type": "Entry",
+                "parameter": {
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 2,
+                    "column": 1,
+                    "columnspan": 1,
+                    "padx": 5,
+                    "pady": 5,
+                    "sticky": "ew"
+                },
+                "children": {
+                    "tooltip": {
+                        "type": "Tooltip",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Tooltip", "select_target_dir_input"]
+                            }
+                        }
+                    }
+                }
+            },
+            "target_entry_button": {
+                "type": "Button",
+                "parameter": {
+                    "text": "...",
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 2,
+                    "column": 2,
+                    "sticky": "e"
+                },
+                "children": {
+                    "tooltip": {
+                        "type": "Tooltip",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Tooltip", "select_target_dir_dialogue"]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Window": {
+        "configure": {
+            "background": {
+                "type": "config",
+                "key_general": "General",
+                "key_specific": "background_color_2"
+            },
+            "bg": {
+                "type": "config",
+                "key_general": "General",
+                "key_specific": "background_color_1"
+            }
+        },
+        "row_weights": [0,1,0],
+        "column_weights": [1],
+        "children": {
+            "top_text_frame": {
+                "type": "Frame",
+                "parameter": {
+                    "bg": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "priority": 3,
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 0,
+                    "column": 0,
+                    "sticky": "new"
+                },
+                "children": {
+                    "top_text": {
+                        "priority": 3,
+                        "type": "Message",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Content", "select_source_target_pairs"]
+                            },
+                            "bg": {
+                                "type": "config",
+                                "key_general": "General",
+                                "key_specific": "background_color_1"
+                            },
+                            "justify": "center"
+                        },
+                        "display_type": "pack",
+                        "display_parameter": {
+                            "anchor": "n",
+                            "fill": "x",
+                            "expand": 1
+                        }
+                    }
+                }
+            },
+            "main_section_frame": {
+                "type": "Frame",
+                "parameter": {
+                    "bg": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    },
+                    "bd": 5,
+                    "relief": "ridge"
+                },
+                "row_weights": [1],
+                "column_weights": [0,0,1],
+                "priority": 2,
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 1,
+                    "column": 0,
+                    "sticky": "nsew",
+                    "padx": 5,
+                    "pady": 0
+                },
+                "children": {
+                    "settings_border_frame": {
+                        "type": "Frame",
+                        "parameter": {
+                            "bd": 0,
+                            "relief": "ridge"
+                        },
+                "row_weights": [1],
+                "column_weights": [0,0,1],
+                        "display_type": "grid",
+                        "display_parameter": {
+                            "row": 0,
+                            "column": 0,
+                            "padx": 0,
+                            "pady": 0,
+                            "sticky": "nsew"
+                        },
+                        "children": {
+                            "settings_label_frame": {
+                                "type": "LabelFrame",
+                                "row_weights": [1,1,1,1,1,1,1],
+                                "column_weights": [1,1,1,5],
+                                "parameter": {
+                                    "text": {
+                                        "type": "translation",
+                                        "keys": ["Content", "settings"]
+                                    },
+                                    "bd": 0,
+                                    "bg": {
+                                        "type": "config",
+                                        "key_general": "General",
+                                        "key_specific": "background_color_2"
+                                    }
+                                },
+                                "configure": {
+                                    "background": {
+                                        "type": "config",
+                                        "key_general": "General",
+                                        "key_specific": "background_color_2"
+                                    }
+                                },
+                                "display_type": "pack",
+                                "display_parameter": {
+                                    "expand": 1,
+                                    "fill": "both"
+                                },
+                                "children": {
+                                    "interface_language_label": {
+                                        "type": "Label",
+                                        "parameter": {
+                                            "text": {
+                                                "type": "translation",
+                                                "keys": ["Content", "interface_language"]
+                                            },
+                                            "justify": "left",
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 0,
+                                            "column": 0,
+                                            "padx": 5,
+                                            "pady": 5,
+                                            "sticky": "w"
+                                        }
+                                    },
+                                    "interface_language_selection": {
+                                        "type": "Combobox",
+                                        "parameter": {
+                                            "state": "readonly",
+                                            "exportselection": 0,
+                                            "values": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "available_translation",
+                                                "typecast": "list"
+                                            },
+                                            "textvariable": {
+                                                "type": "config_link",
+                                                "key_general": "General",
+                                                "key_specific": "selected_translation",
+                                                "typecast": "str"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 0,
+                                            "column": 1,
+                                            "columnspan": 2,
+                                            "padx": 5,
+                                            "pady": 5,
+                                            "sticky": "ew"
+                                        },
+                                        "children": {
+                                            "tooltip": {
+                                                "type": "Tooltip",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Tooltip", "select_interface_language"]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "autoloop_label": {
+                                        "type": "Label",
+                                        "parameter": {
+                                            "text": {
+                                                "type": "translation",
+                                                "keys": ["Content", "autoloop"]
+                                            },
+                                            "justify": "left",
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 1,
+                                            "column": 0,
+                                            "padx": 5,
+                                            "pady": 5,
+                                            "sticky": "w"
+                                        }
+                                    },
+                                    "autoloop_checkbutton": {
+                                        "type": "Checkbutton",
+                                        "parameter": {
+                                            "text": "",
+                                            "bd": 0,
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            },
+                                            "highlightbackground": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            },
+                                            "variable": {
+                                                "type": "config_link",
+                                                "key_general": "General",
+                                                "key_specific": "autoloop",
+                                                "typecast": "bool"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 1,
+                                            "column": 1,
+                                            "sticky": "w"
+                                        },
+                                        "children": {
+                                            "tooltip": {
+                                                "type": "Tooltip",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Tooltip", "autoloop_checkbox"]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "colorblind_label": {
+                                        "type": "Label",
+                                        "parameter": {
+                                            "text": {
+                                                "type": "translation",
+                                                "keys": ["Content", "colorblind"]
+                                            },
+                                            "justify": "left",
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 2,
+                                            "column": 0,
+                                            "padx": 5,
+                                            "pady": 5,
+                                            "sticky": "w"
+                                        }
+                                    },
+                                    "colorblind_checkbutton": {
+                                        "type": "Checkbutton",
+                                        "parameter": {
+                                            "text": "",
+                                            "bd": 0,
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            },
+                                            "highlightbackground": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            },
+                                            "variable": {
+                                                "type": "config_link",
+                                                "key_general": "General",
+                                                "key_specific": "colorblind",
+                                                "typecast": "bool"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 2,
+                                            "column": 1,
+                                            "sticky": "w"
+                                        },
+                                        "children": {
+                                            "tooltip": {
+                                                "type": "Tooltip",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Tooltip", "colorblind_checkbox"]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "skip_move_to_end_label": {
+                                        "type": "Label",
+                                        "parameter": {
+                                            "text": {
+                                                "type": "translation",
+                                                "keys": ["Content", "skip_move_to_end"]
+                                            },
+                                            "justify": "left",
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 3,
+                                            "column": 0,
+                                            "padx": 5,
+                                            "pady": 5,
+                                            "sticky": "w"
+                                        }
+                                    },
+                                    "skip_move_to_end_checkbutton": {
+                                        "type": "Checkbutton",
+                                        "parameter": {
+                                            "text": "",
+                                            "bd": 0,
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            },
+                                            "highlightbackground": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            },
+                                            "variable": {
+                                                "type": "config_link",
+                                                "key_general": "General",
+                                                "key_specific": "skip_move_to_end",
+                                                "typecast": "bool"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 3,
+                                            "column": 1,
+                                            "sticky": "w"
+                                        },
+                                        "children": {
+                                            "tooltip": {
+                                                "type": "Tooltip",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Tooltip", "skip_move_to_end_checkbox"]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "autoupdate_label": {
+                                        "type": "Label",
+                                        "parameter": {
+                                            "text": {
+                                                "type": "translation",
+                                                "keys": ["Content", "autoupdate"]
+                                            },
+                                            "justify": "left",
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 4,
+                                            "column": 0,
+                                            "padx": 5,
+                                            "pady": 5,
+                                            "sticky": "w"
+                                        }
+                                    },
+                                    "autoupdate_radiobuttons": {
+                                        "type": "Frame",
+                                        "parameter": {
+                                            "relief": "groove",
+                                            "bd": 0,
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "row_weights": [1,1],
+                                        "column_weights": [1,1],
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 4,
+                                            "column": 1,
+                                            "padx": 5,
+                                            "sticky": "w"
+                                        },
+                                        "children": {
+                                            "all": {
+                                                "type": "Radiobutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "all_releases"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "justify": "left",
+                                                    "value": "all",
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "autoupdate",
+                                                        "typecast": "str"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 0,
+                                                    "column": 0,
+                                                    "sticky": "w"
+                                                }
+                                            },
+                                            "major": {
+                                                "type": "Radiobutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "major_releases"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "justify": "left",
+                                                    "value": "major",
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "autoupdate",
+                                                        "typecast": "str"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 0,
+                                                    "column": 1,
+                                                    "sticky": "w"
+                                                }
+                                            },
+                                            "major_minor": {
+                                                "type": "Radiobutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "major_minor_releases"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "justify": "left",
+                                                    "value": "minor",
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "autoupdate",
+                                                        "typecast": "str"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 1,
+                                                    "column": 0,
+                                                    "sticky": "w"
+                                                }
+                                            },
+                                            "none": {
+                                                "type": "Radiobutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "no_releases"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "justify": "left",
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "value": "disabled",
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "autoupdate",
+                                                        "typecast": "str"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 1,
+                                                    "column": 1,
+                                                    "sticky": "w"
+                                                }
+                                            },
+                                            "tooltip": {
+                                                "type": "Tooltip",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Tooltip", "autoupdate_checkbox"]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "show_label": {
+                                        "type": "Label",
+                                        "parameter": {
+                                            "text": {
+                                                "type": "translation",
+                                                "keys": ["Content", "show"]
+                                            },
+                                            "justify": "left",
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 5,
+                                            "column": 0,
+                                            "padx": 5,
+                                            "pady": 5,
+                                            "sticky": "w"
+                                        }
+                                    },
+                                    "show_checkboxess": {
+                                        "type": "Frame",
+                                        "parameter": {
+                                            "relief": "groove",
+                                            "bd": 0,
+                                            "background": {
+                                                "type": "config",
+                                                "key_general": "General",
+                                                "key_specific": "background_color_2"
+                                            }
+                                        },
+                                        "row_weights": [1,1,1,1,1],
+                                        "column_weights": [1,1],
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 5,
+                                            "column": 1,
+                                            "padx": 5,
+                                            "sticky": "w"
+                                        },
+                                        "children": {
+                                            "file_size": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_file_size"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_file_size",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 0,
+                                                    "column": 0,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_file_size"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_file_type": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_file_type"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_file_type",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 0,
+                                                    "column": 1,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_file_type"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_file_timestamps": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_file_timestamps"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_file_timestamps",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 1,
+                                                    "column": 0,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_file_timestamps"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_media_playback": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_media_playback"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_media_playback",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 1,
+                                                    "column": 1,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_media_playback"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_media_timeline": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_media_timeline"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_media_timeline",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 2,
+                                                    "column": 0,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_media_timeline"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_queue_progress": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_queue_progress"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_queue_progress",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 2,
+                                                    "column": 1,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_queue_progress"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_menu_bar": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_menu_bar"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_menu_bar",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 3,
+                                                    "column": 0,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_menu_bar"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_achievements": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_achievements"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_achievements",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 3,
+                                                    "column": 1,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_achievements"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "show_last_action": {
+                                                "type": "Checkbutton",
+                                                "parameter": {
+                                                    "text": {
+                                                        "type": "translation",
+                                                        "keys": ["Content", "show_last_action"]
+                                                    },
+                                                    "bd": 0,
+                                                    "padx": 0,
+                                                    "background": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "highlightbackground": {
+                                                        "type": "config",
+                                                        "key_general": "General",
+                                                        "key_specific": "background_color_2"
+                                                    },
+                                                    "variable": {
+                                                        "type": "config_link",
+                                                        "key_general": "General",
+                                                        "key_specific": "show_last_action",
+                                                        "typecast": "bool"
+                                                    }
+                                                },
+                                                "display_type": "grid",
+                                                "display_parameter": {
+                                                    "row": 4,
+                                                    "column": 0,
+                                                    "sticky": "w"
+                                                },
+                                                "children": {
+                                                    "tooltip": {
+                                                        "type": "Tooltip",
+                                                        "parameter": {
+                                                            "text": {
+                                                                "type": "translation",
+                                                                "keys": ["Tooltip", "show_last_action"]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "right_side": {
+                        "type": "Frame",
+                        "parameter": {
+                            "bd": 0,
+                            "relief": "flat",
+                            "background": {
+                                "type": "config",
+                                "key_general": "General",
+                                "key_specific": "background_color_2"
+                            }
+                        },
+                        "row_weights": [1,0,1],
+                        "column_weights": [1],
+                        "display_type": "grid",
+                        "display_parameter": {
+                            "row": 0,
+                            "column": 2,
+                            "padx": 0,
+                            "pady": 0,
+                            "sticky": "nsew"
+                        },
+                        "children": {
+                            "pairing_frame": {
+                                "row_weights": [1],
+                                "column_weights": [1],
+                                "priority": 1,
+                                "type": "Frame",
+                                "parameter": {
+                                    "bd": 5,
+                                    "relief": "groove",
+                                    "background": {
+                                        "type": "config",
+                                        "key_general": "General",
+                                        "key_specific": "background_color_2"
+                                    }
+                                },
+                                "display_type": "grid",
+                                "display_parameter": {
+                                    "row": 0,
+                                    "column": 0,
+                                    "padx": 0,
+                                    "pady": 0,
+                                    "sticky": "nsew"
+                                },
+                                "children": {
+                                    "pairing_notebook": {
+                                        "priority": 1,
+                                        "type": "Notebook",
+                                        "parameter": {
+
+                                        },
+                                        "display_type": "grid",
+                                        "display_parameter": {
+                                            "row": 0,
+                                            "column": 0,
+                                            "stick": "nsew"
+                                        }
+                                    }
+                                }
+                            },
+                            "add_pairing_button": {
+                                "type": "Button",
+                                "parameter": {
+                                    "text": {
+                                        "type": "translation",
+                                        "keys": ["Content", "add_pair"]
+                                    },
+                                    "command": {
+                                        "type": "callback",
+                                        "keys": ["edit_config", "add_pair"]
+                                    }
+                                },
+                                "display_type": "grid",
+                                "display_parameter": {
+                                    "row": 1,
+                                    "column": 0,
+                                    "sticky": ""
+                                },
+                                "children": {
+                                    "tooltip": {
+                                        "type": "Tooltip",
+                                        "parameter": {
+                                            "text": {
+                                                "type": "translation",
+                                                "keys": ["Tooltip", "add_pair"]
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "info_frame": {
+                                "priority": 1,
+                                "type": "Frame",
+                                "parameter": {
+                                    "bd": 0,
+                                    "relief": "groove",
+                                    "background": "black"
+                                },
+                                "display_type": "grid",
+                                "display_parameter": {
+                                    "row": 2,
+                                    "column": 0,
+                                    "padx": 0,
+                                    "pady": 0,
+                                    "sticky": "nsew"
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            },
+            "bottom_button_frame": {
+                "priority": 1,
+                "type": "Frame",
+                "parameter": {
+                    "bd": 0,
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 2,
+                    "column": 0,
+                    "sticky": "s"
+                },
+                "children": {
+                    "button_okay": {
+                        "type": "Button",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Content", "okay"]
+                            },
+                            "command": {
+                                "type": "callback",
+                                "keys": ["edit_config", "okay"]
+                            }
+                        },
+                        "display_type": "grid",
+                        "display_parameter": {
+                            "row": 0,
+                            "column": 0,
+                            "padx": 5,
+                            "pady": 0,
+                            "sticky": "e"
+                        },
+                        "children": {
+                            "tooltip": {
+                                "type": "Tooltip",
+                                "parameter": {
+                                    "text": {
+                                        "type": "translation",
+                                        "keys": ["Tooltip", "edit_config_okay"]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "button_cancel": {
+                        "type": "Button",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Content", "cancel"]
+                            },
+                            "command": {
+                                "type": "callback",
+                                "keys": ["edit_config", "cancel"]
+                            }
+                        },
+                        "display_type": "grid",
+                        "display_parameter": {
+                            "row": 0,
+                            "column": 1,
+                            "padx": 5,
+                            "pady": 0,
+                            "sticky": "ew"
+                        },
+                        "children": {
+                            "tooltip": {
+                                "type": "Tooltip",
+                                "parameter": {
+                                    "text": {
+                                        "type": "translation",
+                                        "keys": ["Tooltip", "edit_config_cancel"]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "button_save_settings": {
+                        "type": "Button",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Content", "save_settings"]
+                            },
+                            "command": {
+                                "type": "callback",
+                                "keys": ["edit_config", "save_settings"]
+                            }
+                        },
+                        "display_type": "grid",
+                        "display_parameter": {
+                            "row": 0,
+                            "column": 2,
+                            "padx": 5,
+                            "pady": 0,
+                            "sticky": "w"
+                        },
+                        "children": {
+                            "tooltip": {
+                                "type": "Tooltip",
+                                "parameter": {
+                                    "text": {
+                                        "type": "translation",
+                                        "keys": ["Tooltip", "edit_config_save"]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

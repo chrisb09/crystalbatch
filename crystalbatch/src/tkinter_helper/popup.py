@@ -1,6 +1,7 @@
 from tkinter.messagebox import *
 from tkinter.colorchooser import askcolor
 import tkinter as tk
+from tkinter import filedialog
 
 
 def _create_root():
@@ -63,3 +64,6 @@ def okay_cancel(title, message, root=None, **options):
 
 def select_color(color, root=None, **options):
     return _callfunction(askcolor, root, color, **options)
+
+def get_dir(root=None, *args, **options):
+    return _callfunction(filedialog.askdirectory, root, *args, **options)

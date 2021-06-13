@@ -1,0 +1,1 @@
+The Configuration section of the "edit_config.json" file contains DEFAULT values that are used to create the "config.ini". It is NOT the config file, changing values here will NOT have any effect unless you regenerate the config.ini!

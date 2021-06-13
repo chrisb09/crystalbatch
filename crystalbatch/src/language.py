@@ -16,6 +16,8 @@ def _check_locale(loc, used_languages):
                 break
     return used_languages
 
+def list_available_translation_names():
+    return [name for name,_,_ in list_available_translations()]
 
 def list_available_translations():
     translations = []
@@ -99,13 +101,12 @@ def get_translation_by_locale(locale):
 
 def load_translation_by_keyword(
     keyword,
-):  # load a language, keyword could be 'english' or 'german' etc.
-    load_translation(
-        os.path.join(
-            os.path.abspath(os.path.join(root_dir, "res/gui/language/")),
-            keyword + ".json",
-        )
-    )
+):  # load a language, keyword could be 'English' or 'Deutsch' etc.
+    for (name, _, path) in list_available_translations():
+        if name == keyword:
+            print("Load '"+path+"'")
+            load_translation(path)
+            break
 
 
 def load_translation(path):

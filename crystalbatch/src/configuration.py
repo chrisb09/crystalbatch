@@ -1,6 +1,7 @@
 import configparser, os
 
 from . import language
+from .tkinter_helper import tkinter_json_loader
 
 config_path = "config.ini"
 configuration = {}
@@ -9,6 +10,11 @@ config = None
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
 print(root_dir)
 
+def _add_available_languages():
+    s = ",".join(language.list_available_translation_names())
+    print("S:")
+    print(s)
+    config.set("General", "available_translation", s)
 
 def _check_if_config_exists():
     return os.path.exists(config_path)
@@ -24,14 +30,11 @@ def _write_config():
         config.set("General", "log_level_debug", "True")
         config.set(
             "General",
-            "selected_translation",
-            os.path.basename(
-                os.path.splitext(
-                    language.get_translation_by_locale(language.default_language)[2]
-                )[0]
-            ),
+            "selected_translation", language.get_translation_by_locale(language.default_language)[0]
         )
-        config.set("General", "selected_vocabularies", "")
+        _add_available_languages()
+        tkinter_json_loader.add_to_config(config, os.path.join(root_dir, "res/gui/edit_config.json"))
+
     config.write(cfgfile)
     cfgfile.close()
 
@@ -50,6 +53,9 @@ def _update_from_config():
                 + config.get("General", "selected_translation")
                 + "' loaded successfully!"
             )
+        _add_available_languages()
+        if tkinter_json_loader.add_to_config(config, os.path.join(root_dir, "res/gui/edit_config.json"), overwrite=False):
+            _write_config()
 
 
 def read_config():
