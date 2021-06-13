@@ -176,14 +176,21 @@ def _forge_new_keylist(keys, key):
 
 def _get_value_from_dict(_dict_tmp, keys):
     if len(keys) > 0:
-        return _get_value_from_dict(_dict_tmp[keys[0]], keys[1:])
+        if keys[0] in _dict_tmp:
+            return _get_value_from_dict(_dict_tmp[keys[0]], keys[1:])
+        else:
+            print(str(keys[0])+" not in "+str(_dict_tmp))
+            return None
     else:
         return _dict_tmp
 
 
 def _get_translation_value(_json, keys, config, translation):
     translation_keys = _get_value(_json, keys, config, translation, "keys")
-    return _get_value_from_dict(translation, translation_keys)
+    result =_get_value_from_dict(translation, translation_keys)
+    if result is not None:
+        return result
+    return "Undefined"
 
 
 def _get_config_link(_json, keys, config, translation):
