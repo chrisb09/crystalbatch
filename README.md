@@ -166,6 +166,9 @@ Small window screenshot:
   - [ ] start with pretrained network trained on selected wordlists, learn from user input
     - [ ] perhaps share differences of net online from time to time
       - [ ] validate aggregated changes by running on other users, maybe...
+- [ ] Add theme support for different looks
+- [ ] Add insert key previous title hotkey
+  - [ ] add regex support for this
     
 ## Perhaps:
 
