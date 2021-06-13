@@ -36,9 +36,77 @@
             "fill": "both",
             "expand": 1
         },
-        "row_weights": [0,0,0,1,0],
-        "column_weights": [0,1,0],
+        "column_weights": [0,0,0,1,0],
+        "row_weights": [1,0,0,1,0,0,0,0,0,1,0,0,0,1,0],
         "children": {
+            "custom_pairing_name_checkbutton": {
+                "type": "Checkbutton",
+                "parameter": {
+                    "text": {
+                        "type": "translation",
+                        "keys": ["Content", "custom_pairing_name"]
+                    },
+                    "bd": 0,
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_2"
+                    },
+                    "highlightbackground": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_2"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 1,
+                    "column": 1,
+                    "columnspan": 3,
+                    "sticky": "w"
+                },
+                "children": {
+                    "tooltip": {
+                        "type": "Tooltip",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Tooltip", "custom_pairing_name"]
+                            }
+                        }
+                    }
+                }
+            },
+            "custom_pairing_name_entry": {
+                "type": "Entry",
+                "parameter": {
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 2,
+                    "column": 3,
+                    "columnspan": 1,
+                    "padx": 5,
+                    "pady": 5,
+                    "sticky": "ew"
+                },
+                "children": {
+                    "tooltip": {
+                        "type": "Tooltip",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Tooltip", "custom_pairing_name_input"]
+                            }
+                        }
+                    }
+                }
+            },
             "source_entry_label": {
                 "type": "Label",
                 "parameter": {
@@ -55,9 +123,9 @@
                 },
                 "display_type": "grid",
                 "display_parameter": {
-                    "row": 0,
+                    "row": 4,
                     "column": 0,
-                    "columnspan": 1,
+                    "columnspan": 2,
                     "padx": 5,
                     "pady": 5,
                     "sticky": "e"
@@ -74,9 +142,9 @@
                 },
                 "display_type": "grid",
                 "display_parameter": {
-                    "row": 0,
-                    "column": 1,
-                    "columnspan": 1,
+                    "row": 4,
+                    "column": 2,
+                    "columnspan": 2,
                     "padx": 5,
                     "pady": 5,
                     "sticky": "ew"
@@ -105,8 +173,8 @@
                 },
                 "display_type": "grid",
                 "display_parameter": {
-                    "row": 0,
-                    "column": 2,
+                    "row": 4,
+                    "column": 4,
                     "sticky": "e"
                 },
                 "children": {
@@ -137,9 +205,9 @@
                 },
                 "display_type": "grid",
                 "display_parameter": {
-                    "row": 2,
+                    "row": 10,
                     "column": 0,
-                    "columnspan": 1,
+                    "columnspan": 2,
                     "padx": 5,
                     "pady": 5,
                     "sticky": "e"
@@ -156,9 +224,9 @@
                 },
                 "display_type": "grid",
                 "display_parameter": {
-                    "row": 2,
-                    "column": 1,
-                    "columnspan": 1,
+                    "row": 10,
+                    "column": 2,
+                    "columnspan": 2,
                     "padx": 5,
                     "pady": 5,
                     "sticky": "ew"
@@ -187,8 +255,8 @@
                 },
                 "display_type": "grid",
                 "display_parameter": {
-                    "row": 2,
-                    "column": 2,
+                    "row": 10,
+                    "column": 4,
                     "sticky": "e"
                 },
                 "children": {
