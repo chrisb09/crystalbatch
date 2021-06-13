@@ -1,8 +1,10 @@
 #!/bin/python3
 import math, json, cairo, os
 
-border_color = (1,1,1) #White
-#border_color = (0,0,0) #Black
+#border_color = (1,1,1) #White
+border_color = (0,0,0) #Black
+
+border_width = 2
 
 folder = "output"
 
@@ -79,7 +81,7 @@ def _draw_form(context, points, point_indices, color):
         p = points[point_indices[(i+1)%len(point_indices)]]
         context.line_to(*p)
         context.set_line_cap(cairo.LINE_CAP_ROUND)
-        context.set_line_width(1)
+        context.set_line_width(border_width)
         context.set_source_rgba(*border_color, 1)
         context.stroke()
 
