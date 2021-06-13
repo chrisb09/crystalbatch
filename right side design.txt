@@ -1,6 +1,5 @@
-
-[ ] Custom pairing name
-    (Name: _______ [Apply])
+        [ ] Custom pairing name
+            (Name: _______[Apply])
 
 Source: ____________ [...]
         [ ] Regex selection
@@ -11,3 +10,5 @@ Source: ____________ [...]
 Target: ____________ [...]
         [ ] Custom Rename template
             (__prefix__ __suffix__ [?Help])
+            
+        [Verify][Duplicate][Delete]
