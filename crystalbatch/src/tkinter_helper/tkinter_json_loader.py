@@ -89,6 +89,8 @@ class WidgetTree:
         self.children = children
 
     def get(self, keys):
+        if keys == None:
+            return self.widget
         if len(keys) == 1:
             if keys[0] == self.name:
                 return self.widget

@@ -107,6 +107,37 @@
                     }
                 }
             },
+            "custom_pairing_name_button": {
+                "type": "Button",
+                "parameter": {
+                    "text": {
+                        "type": "translation",
+                        "keys": ["Content", "custom_pairing_name_button"]
+                    },
+                    "background": {
+                        "type": "config",
+                        "key_general": "General",
+                        "key_specific": "background_color_1"
+                    }
+                },
+                "display_type": "grid",
+                "display_parameter": {
+                    "row": 2,
+                    "column": 4,
+                    "sticky": "e"
+                },
+                "children": {
+                    "tooltip": {
+                        "type": "Tooltip",
+                        "parameter": {
+                            "text": {
+                                "type": "translation",
+                                "keys": ["Tooltip", "custom_pairing_name_button"]
+                            }
+                        }
+                    }
+                }
+            },
             "source_entry_label": {
                 "type": "Label",
                 "parameter": {
@@ -175,7 +206,7 @@
                 "display_parameter": {
                     "row": 4,
                     "column": 4,
-                    "sticky": "e"
+                    "sticky": "w"
                 },
                 "children": {
                     "tooltip": {
@@ -257,7 +288,7 @@
                 "display_parameter": {
                     "row": 10,
                     "column": 4,
-                    "sticky": "e"
+                    "sticky": "w"
                 },
                 "children": {
                     "tooltip": {
