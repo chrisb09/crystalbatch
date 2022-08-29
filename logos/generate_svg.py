@@ -6,7 +6,7 @@ border_color = (0,0,0) #Black
 
 border_width = 2
 
-folder = "output"
+folder = "output_extended"
 
 if not os.path.exists(folder):
     os.mkdir(folder)
@@ -85,21 +85,33 @@ def _draw_form(context, points, point_indices, color):
         context.set_source_rgba(*border_color, 1)
         context.stroke()
 
+counter = 1
+
 def _draw(keys):
+    global counter
 
     WIDTH, HEIGHT = 576, 576
 
-    surface = cairo.SVGSurface(folder+"/"+str(len(keys))+".svg", 576, 576)
+    if len(keys) > 0:
+        for i in range(len(data["Stones"][keys[-1]]["Polygons"])):
 
-    context = cairo.Context(surface)
+            surface = cairo.SVGSurface(folder+"/"+str(counter)+".svg", 576, 576)
 
-    for crystal in keys:
-        #colors = (random.random(),random.random(),random.random())
-        colorint = int(data["Stones"][crystal]["Color"],16)
-        colors = _rel_color(_int_to_color(colorint))
-        print(colors)
-        for l in data["Stones"][crystal]["Polygons"]:
-            _draw_form(context, points, l, colors)
+            context = cairo.Context(surface)
+
+            for crystal in keys:
+                #colors = (random.random(),random.random(),random.random())
+                colorint = int(data["Stones"][crystal]["Color"],16)
+                colors = _rel_color(_int_to_color(colorint))
+                print(colors)
+                for l in data["Stones"][crystal]["Polygons"][:i+1 if crystal == keys[-1] else None]:
+                    _draw_form(context, points, l, colors)
+                
+            counter += 1
+    else:
+        surface = cairo.SVGSurface(folder+"/"+str(0)+".svg", 576, 576)
+
+        context = cairo.Context(surface)
             
 keys = []
 _draw(keys)
